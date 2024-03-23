@@ -41,7 +41,7 @@ const Head = () => {
          <a href='/'>  <img className='h-14 ml-5  -mt-3 ' src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg" /> </a> 
        </div>
        <div className='col-span-10  px-20'>
-           <div> 
+          
            <form className='flex ' onSubmit={(e)=>{e.preventDefault();}}> 
            <input type='text' value={searchquery} onChange={(e)=>{setsearchquery(e.target.value)}} className='w-1/2 border border-gray-400 py-2 px-2  rounded-l-full  relative '
               onFocus= {()=>setshowsuggestion(true)}
@@ -52,7 +52,7 @@ const Head = () => {
                  🔍
             </button>
             </form>
-            </div>
+            
             { suggestion.length>0 && showsuggestion &&
             <div className=' absolute bg-white  w-[27rem] py-2 px-2 shadow-lg rounded-lg border border-gray-200'>
                 <ul>
