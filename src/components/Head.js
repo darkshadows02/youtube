@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {toggleMenu} from "../utils/appSlice"
-   import { SEARCH } from '../utils/constrant';
 import { chacheResult } from '../utils/searchSlice';
+import { SEARCH } from '../utils/constrant';
  
 const Head = () => {
       const dispatch=useDispatch();
@@ -25,7 +25,7 @@ const Head = () => {
          }
     }, [searchquery])
    const getSearchSuggestion= async()=>{
-      console.log(SEARCH);
+      // console.log(SEARCH);
           const data= await fetch(SEARCH+searchquery);
           const json=await data.json();
           setsuggest(json[1]);
@@ -42,13 +42,16 @@ const Head = () => {
        </div>
        <div className='col-span-10  px-20'>
            <div> 
+           <form className='flex ' onSubmit={(e)=>{e.preventDefault();}}> 
            <input type='text' value={searchquery} onChange={(e)=>{setsearchquery(e.target.value)}} className='w-1/2 border border-gray-400 py-2 px-2  rounded-l-full  relative '
               onFocus= {()=>setshowsuggestion(true)}
               onBlur={()=>setshowsuggestion(false)}
            />
+           
            <button className=' border border-gray-400 py-2 px-5  rounded-r-full bg-slate-300'>
                  🔍
             </button>
+            </form>
             </div>
             { suggestion.length>0 && showsuggestion &&
             <div className=' absolute bg-white  w-[27rem] py-2 px-2 shadow-lg rounded-lg border border-gray-200'>
