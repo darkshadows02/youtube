@@ -13,6 +13,7 @@ const Head = () => {
     const toggleMenuHandler=()=>{
         dispatch(toggleMenu());
     }
+      console.log("sur");
     useEffect(()=>{
     const timer=  setTimeout(()=>{
         if(searchCache[searchquery]){
